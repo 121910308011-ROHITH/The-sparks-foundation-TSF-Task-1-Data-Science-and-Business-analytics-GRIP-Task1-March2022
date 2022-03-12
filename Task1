@@ -1,0 +1,53 @@
+---
+title: "TASK1"
+author: "ROHITH"
+date: "09/03/2022"
+output: html_document
+---
+
+#step1:Reading the given file
+```{r}
+df<-read.csv("http://bit.ly/w-data")
+```
+
+
+```{r}
+df
+
+```
+# step2: plotting a scater plot between Score vs Hours
+
+```{r}
+plot(df$Hours,df$Scores,xlab="Hours",ylab="Scores")
+```
+#step3:Finding the slope and intercept of given values
+```{r}
+a<-lm(df$Scores~df$Hours)
+a
+```
+#step4:Finding the predicted values
+```{r}
+m<-predict(a)
+m
+```
+#step5:plotting a graph between Predicted values and the real values
+```{r}
+plot(df$Hours,df$Scores,xlab="Hours",ylab="Scores")
+lines(df$Hours,m)
+```
+#step6
+
+```{r}
+r<-coef(a)
+intercept<-r[1]
+intercept
+slope<-r[2]
+slope
+```
+#step7:predicting the score when he or she studies for 9.25 hours ?
+```{r}
+slope*9.25+intercept
+```
+#if he or she studies for 9.25 hours a day they will score 93 marks
+
+
